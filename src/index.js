@@ -10,7 +10,7 @@ import {routerMiddleware} from 'react-router-redux';
 
 import '../styles/main.scss';
 import App from './containers/App';
-import TeamsContainer from './containers/TeamsContainer';
+import CompetitionContainer from './containers/CompetitionContainer';
 import configureStore from './store/configureStore';
 
 const history = createHashHistory();
@@ -22,7 +22,7 @@ ReactDOM.render(
         <Router history={history}>
             <div>
                 <Route path='/' component={App} />
-                <Route path='/competitions/:competitionId' component={TeamsContainer} />
+                <Route path='/competitions/:competitionId' component={CompetitionContainer} />
             </div>
         </Router>
     </Provider>,

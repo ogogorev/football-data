@@ -30,7 +30,7 @@ App.propTypes = propTypes;
 
 function mapStateToProps(state) {
     return {
-        competitions: state.competitions.items,
+        competitions: state.competitions.names,
     }
 }
 

@@ -8,14 +8,33 @@ function receiveCompetitions(competitions) {
     }
 }
 
-function receiveCompetitionTeams(competitionId, teams) { // TODO Move to own file
+function receiveCompetitonLeagueTable(competitionId, leagueTable) {
+    return {
+        type: types.RECEIVE_COMPETITION_LEAGUE_TABLE,
+        competitionId,
+        leagueTable
+    }
+}
 
-    console.log('RECEIVE COMPETITION TEAMS ACTION');
+function receiveCompetitionTeams(competitionId, teams) { // TODO Move to own file
     return {
         type: types.RECEIVE_COMPETITION_TEAMS,
         competitionId,
         teams,
     }
+}
+
+export function fetchCompetitionLeagueTable(competitionId) {
+    return dispatch =>
+    fetch(`http://api.football-data.org/v1/competitions/${competitionId}/leagueTable`, {
+        headers: {
+            'X-Auth-Token': token,
+        }
+    })
+    .then(response => response.json())
+    .then(json => {
+        dispatch(receiveCompetitonLeagueTable(competitionId, json));
+    });
 }
 
 export function fetchCompetitionTeams(competitionId) {
