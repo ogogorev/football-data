@@ -11,6 +11,7 @@ import {routerMiddleware} from 'react-router-redux';
 import '../styles/main.scss';
 import App from './containers/App';
 import CompetitionContainer from './containers/CompetitionContainer';
+import TeamsContainer from './containers/TeamsContainer';
 import configureStore from './store/configureStore';
 
 const history = createHashHistory();

@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-    names: [],
+    competitions: [],
     tables: {},
 };
 
@@ -9,15 +9,21 @@ export default function competitions(state = initialState, action) {
     switch (action.type) {
         case types.RECEIVE_COMPETITIONS:
             return Object.assign({}, state, {
-                names: action.competitions,
+                competitions: filterCompetitions(action.competitions),
             });
 
         case types.RECEIVE_COMPETITION_LEAGUE_TABLE:
             return Object.assign({}, state, {
-                tables[action.competitionId]: action.leagueTable,
+                tables: {
+                    [action.competitionId]: action.leagueTable,
+                },
             });
 
         default:
             return state;
     }
+}
+
+function filterCompetitions(competitions) { // Exclude European championships France 2016 and DFB-Pokal league
+    return competitions.filter(competition => ((competition.id !== 432) && (competition.id !== 424)));
 }
