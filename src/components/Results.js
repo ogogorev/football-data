@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
 const propTypes = {
-    results: PropTypes.object.isRequired,
+    results: PropTypes.array.isRequired,
 };
 
 class Results extends Component {
