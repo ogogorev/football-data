@@ -24,6 +24,6 @@ export default function competitions(state = initialState, action) {
     }
 }
 
-function filterCompetitions(competitions) { // Exclude European championships France 2016 and DFB-Pokal league
+function filterCompetitions(competitions) { // Excludes European championships France 2016 and DFB-Pokal league
     return competitions.filter(competition => ((competition.id !== 432) && (competition.id !== 424)));
 }
