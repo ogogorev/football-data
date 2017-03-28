@@ -12,7 +12,7 @@ const Competitions = (props) => {
     return (
         <div>
             {props.competitions.map(competition => (
-                <div className='dropdown-content-item'>
+                <div className='dropdown-content-item' key={competition.id}>
                     <Link to={'/competitions/' + competition.id}> {competition.caption} </Link>
                 </div>
             ))}

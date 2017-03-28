@@ -5,7 +5,7 @@ import Results from './Results';
 
 const propTypes = {
     table: PropTypes.object.isRequired,
-    results: PropTypes.object.isRequired,
+    results: PropTypes.array.isRequired,
 };
 
 class Competition extends Component {
@@ -14,7 +14,7 @@ class Competition extends Component {
         return (
             <div>
                 {(Object.keys(this.props.table).length > 0) ? <LeagueTable {...this.props.table} isShort={true} /> : null}
-                {(Object.keys(this.props.results).length > 0) ? <Results {...this.props.results} isShort={true} /> : null}
+                {(Object.keys(this.props.results).length > 0) ? <Results results={this.props.results} isShort={true} /> : null}
             </div>
         );
     }

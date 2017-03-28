@@ -18,14 +18,14 @@ class LeagueTable extends Component {
                     <tbody>
                         <tr>
                             {headers.map(header => (
-                                <th> {header} </th>
+                                <th key={header}> {header} </th>
                             ))}
                         </tr>
                         {standing.map(row => {
                             return (
-                                <tr>
+                                <tr key={row.teamName}>
                                     {headers.map(header => (
-                                        <th> {row[header]} </th>
+                                        <td key={row[header]}> {row[header]} </td>
                                     ))}
                                 </tr>
                             );
