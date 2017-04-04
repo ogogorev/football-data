@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import {fetchCompetitions} from '../actions/competitions';
-import AppBar from '../components/AppBar';
+import CompetitionsBar from '../components/CompetitionsBar';
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
     competitions: PropTypes.array.isRequired,
+    competitionId: PropTypes.string
 };
 
 class App extends Component {
@@ -16,11 +17,15 @@ class App extends Component {
         dispatch(fetchCompetitions());
     }
 
+    handleClick = (value) => {
+        this.props.history.push('/competitions/' + value);
+    }
+
     render() {
-        const {competitions} = this.props;
+        const {competitions, competitionId} = this.props;
         return (
             <div className='app-container'>
-                <AppBar competitions={competitions} />
+                <CompetitionsBar competitions={competitions} competitionId={competitionId} handleClick={this.handleClick}/>
             </div>
         );
     }
@@ -28,8 +33,9 @@ class App extends Component {
 
 App.propTypes = propTypes;
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
+        competitionId: ownProps.match.params.competitionId,
         competitions: state.competitions.competitions,
     }
 }
