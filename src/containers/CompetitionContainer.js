@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {Paper} from 'material-ui';
 
 import {fetchCompetitionLeagueTable} from '../actions/competitions';
 import {fetchCompetitionResults} from '../actions/results';
@@ -25,8 +26,11 @@ class CompetitionContainer extends Component {
     render() {
         return (
             <div>
-                <h1> COMPETITION CONTAINER </h1>
-                <Competition table={this.props.table} results={getResultsForMatchday(this.props.results, this.props.competition.currentMatchday - 1)} />
+                <Competition
+                    table={this.props.table}
+                    results={getResultsForMatchday(this.props.results, this.props.competition.currentMatchday - 1)}
+                    competitionName={this.props.competition.caption}
+                />
             </div>
         );
     }
