@@ -17,12 +17,15 @@ class Result extends Component {
         // const {goalsHomeTeam, goalsAwayTeam} = [null, null];
 
         return (
-            <div>
-                {clearDataString(date)} <br/>
-                {homeTeamName} {goalsHomeTeam} <br/>
-                {awayTeamName} {goalsAwayTeam} <br/>
-                {status} <br/>
-                <br/> <br/> <br/> <br/>
+            // <div style={styles.container}>
+            <div className='result-container'>
+                <span className='date'> {clearDataString(date)} </span> <br/>
+                <span className='status'> {status} </span>
+                <div className='result-row'>
+                    <div className='home-team-row'> {homeTeamName} </div>
+                    <div className='score-row'> {goalsHomeTeam} - {goalsAwayTeam} </div>
+                    <div className='away-team-row'> {awayTeamName} </div> <br/>
+                </div>
             </div>
         );
     }

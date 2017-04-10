@@ -7,5 +7,7 @@ export function getResultsForMatchday(results, matchday) {
 }
 
 export function clearDataString(str) {
-    return str.replace(/T/, ' ').replace(/:00Z/, '');
+    str = str.replace(/T/, ' ').replace(/:00Z/, '').replace(/ .*/, '');
+    let dataArr = str.split('-');
+    return dataArr[2] + '/' + dataArr[1] + '/' + dataArr[0];
 }

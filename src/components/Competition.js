@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-// import {Tabs, Tab} from 'material-ui';
 
 import LeagueTable from './LeagueTable';
 import Results from './Results';
@@ -8,35 +7,45 @@ const propTypes = {
     competitionName: PropTypes.string.isRequired,
     table: PropTypes.object.isRequired,
     results: PropTypes.array.isRequired,
+    currentMatchday: PropTypes.number.isRequired,
 };
 
-const containerStyles = {
-    width: '70%',
-    margin: 'auto',
-    textAlign: 'center',
-};
-
-const contentStyles = {
-    display: 'flex',
-    justifyContent: 'center',
+const CompetitionMenu = (props) => {
+    return (
+        <div className='competition-menu'>
+            {props.items.map(item => (
+                <span
+                    key={item}
+                    className={'item ' + ((item === props.selectedItem) ? 'selected-item' : '')}
+                    onClick={() => props.onClick(item)}
+                > {item.toUpperCase()} </span>
+            ))}
+        </div>
+    );
 };
 
 class Competition extends Component {
-    render() {
-        const {competitionName} = this.props;
+    state = {selectedItem: 'table'};
 
+    onMenuClick = (value) => this.setState({selectedItem: value});
+
+    render() {
+        const {competitionName, currentMatchday, results, table} = this.props;
+        const items = ['table', 'results'];
         return (
-            <div style={containerStyles}>
+            <div className='competition-container'>
                 <h3> {competitionName} </h3>
 
-                <div style={contentStyles}>
-                    {(Object.keys(this.props.table).length > 0) ? <LeagueTable {...this.props.table} isShort={true} /> : null}
-                    {(Object.keys(this.props.results).length > 0) ? <Results results={this.props.results} isShort={true} /> : null}
+                <div className='content'>
+                    <div className='table'> {(Object.keys(table).length > 0) ? <LeagueTable {...table} isShort={true} /> : null} </div>
+                    {(Object.keys(results).length > 0) ? <Results results={results} currentMatchday={currentMatchday} /> : null}
                 </div>
             </div>
         );
     }
 }
+
+// <CompetitionMenu title={competitionName} items={items} selectedItem={this.state.selectedItem} onClick={this.onMenuClick} />
 
 Competition.propTypes = propTypes;
 

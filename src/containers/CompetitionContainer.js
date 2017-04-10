@@ -28,13 +28,15 @@ class CompetitionContainer extends Component {
             <div>
                 <Competition
                     table={this.props.table}
-                    results={getResultsForMatchday(this.props.results, this.props.competition.currentMatchday - 1)}
+                    results={this.props.results}
+                    currentMatchday={this.props.competition.currentMatchday}
                     competitionName={this.props.competition.caption}
                 />
             </div>
         );
     }
 }
+// results={getResultsForMatchday(this.props.results, this.props.competition.currentMatchday - 1)}
 
 CompetitionContainer.propTypes = propTypes;
 
