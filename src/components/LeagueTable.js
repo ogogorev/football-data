@@ -58,28 +58,3 @@ class LeagueTable extends Component {
 LeagueTable.propTypes = propTypes;
 
 export default LeagueTable;
-
-
-// return (
-//     <div>
-//         <table>
-//             <caption> {leagueCaption} </caption>
-//             <tbody>
-//                 <tr>
-//                     {headers.map(header => (
-//                         <th key={header}> {header} </th>
-//                     ))}
-//                 </tr>
-//                 {standing.map(row => {
-//                     return (
-//                         <tr key={row.teamName}>
-//                             {headers.map(header => (
-//                                 <td key={row[header]}> {row[header]} </td>
-//                             ))}
-//                         </tr>
-//                     );
-//                 })}
-//             </tbody>
-//         </table>
-//     </div>
-// );
