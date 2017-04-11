@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import {fetchCompetitions} from '../actions/competitions';
-import CompetitionsBar from '../components/CompetitionsBar';
+import AppBar from '../components/AppBar';
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -25,7 +25,7 @@ class App extends Component {
         const {competitions, competitionId} = this.props;
         return (
             <div className='app-container'>
-                <CompetitionsBar competitions={competitions} competitionId={competitionId} handleClick={this.handleClick}/>
+                <AppBar competitions={competitions} competitionId={competitionId} handleClick={this.handleClick}/>
             </div>
         );
     }

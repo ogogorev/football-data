@@ -1,0 +1,29 @@
+.competition-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+.competition-container .content {
+    display: flex;
+    justify-content: center;
+}
+
+.competition-container .table {
+    width: 35%;
+}
+
+.competition-menu {
+    font-family: 'Roboto';
+    color: #CCCCCC;
+}
+
+.competition-menu .item {
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.competition-menu .selected-item {
+    color: #00BCD4;
+}
