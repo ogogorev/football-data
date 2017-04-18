@@ -23,6 +23,10 @@ class LeagueTable extends Component {
     render() {
         const {leagueCaption, standing, isShort} = this.props;
         const headers = (isShort) ? shortTableHeaders : headers;
+
+        console.log('WIDTH WIDTH', document.documentElement.clientWidth);
+        console.log('WIDTH WIDTH', window.innerWidth);
+
         return (
             <div>
                 <Table>
